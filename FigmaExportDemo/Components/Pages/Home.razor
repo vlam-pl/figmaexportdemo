@@ -1,150 +1,207 @@
 ﻿@page "/"
-@using System.Text.Json
+@rendermode InteractiveServer
 
-<PageTitle>Home</PageTitle>
+<PageTitle>Design Tokens Demo</PageTitle>
 
-<div>
-    <Switch Checked="true" CheckedChildren="开" UnCheckedChildren="关" />
-    <br />
-    <Switch Checked="false" CheckedChildren="开" UnCheckedChildren="关" />
-    <br />
-    <Switch Checked="true">
-        <CheckedChildrenTemplate>
-            <Icon Type="@IconType.Outline.Check" />
-        </CheckedChildrenTemplate>
-        <UnCheckedChildrenTemplate>
-            <Icon Type="@IconType.Outline.Close" />
-        </UnCheckedChildrenTemplate>
-    </Switch>
+<div class="demo-container">
+    <Title Level="1">Figma Design Tokens Demo</Title>
+    <Paragraph>
+        This page demonstrates AntDesign Blazor components styled with Figma design tokens.
+    </Paragraph>
+
+    <Divider>Buttons</Divider>
+    <Space Size="@("middle")">
+        <SpaceItem>
+            <Button Type="@ButtonType.Primary">Primary</Button>
+        </SpaceItem>
+        <SpaceItem>
+            <Button Type="@ButtonType.Default">Default</Button>
+        </SpaceItem>
+        <SpaceItem>
+            <Button Type="@ButtonType.Dashed">Dashed</Button>
+        </SpaceItem>
+        <SpaceItem>
+            <Button Type="@ButtonType.Text">Text</Button>
+        </SpaceItem>
+        <SpaceItem>
+            <Button Type="@ButtonType.Link">Link</Button>
+        </SpaceItem>
+        <SpaceItem>
+            <Button Danger Type="@ButtonType.Primary">Danger</Button>
+        </SpaceItem>
+    </Space>
+
+    <Divider>Color Palette</Divider>
+    <Row Gutter="16">
+        <AntDesign.Col Span="6">
+            <Card Title="Primary Colors" Size="@CardSize.Small">
+                <div class="color-swatch" style="background: var(--ant-color-primary);">Primary</div>
+                <div class="color-swatch" style="background: var(--ant-color-primary-hover);">Hover</div>
+                <div class="color-swatch" style="background: var(--ant-color-primary-active);">Active</div>
+                <div class="color-swatch" style="background: var(--ant-color-primary-bg); color: var(--ant-color-text);">Background</div>
+            </Card>
+        </AntDesign.Col>
+        <AntDesign.Col Span="6">
+            <Card Title="Success Colors" Size="@CardSize.Small">
+                <div class="color-swatch" style="background: var(--ant-color-success);">Success</div>
+                <div class="color-swatch" style="background: var(--ant-color-success-hover);">Hover</div>
+                <div class="color-swatch" style="background: var(--ant-color-success-bg); color: var(--ant-color-text);">Background</div>
+            </Card>
+        </AntDesign.Col>
+        <AntDesign.Col Span="6">
+            <Card Title="Warning Colors" Size="@CardSize.Small">
+                <div class="color-swatch" style="background: var(--ant-color-warning);">Warning</div>
+                <div class="color-swatch" style="background: var(--ant-color-warning-hover);">Hover</div>
+                <div class="color-swatch" style="background: var(--ant-color-warning-bg); color: var(--ant-color-text);">Background</div>
+            </Card>
+        </AntDesign.Col>
+        <AntDesign.Col Span="6">
+            <Card Title="Error Colors" Size="@CardSize.Small">
+                <div class="color-swatch" style="background: var(--ant-color-error);">Error</div>
+                <div class="color-swatch" style="background: var(--ant-color-error-hover);">Hover</div>
+                <div class="color-swatch" style="background: var(--ant-color-error-bg); color: var(--ant-color-text);">Background</div>
+            </Card>
+        </AntDesign.Col>
+    </Row>
+
+    <Divider>Alerts</Divider>
+    <Space Direction="@SpaceDirection.Vertical" Style="width: 100%;">
+        <SpaceItem>
+            <Alert Type="@AlertType.Success" Message="Success" Description="This is a success alert styled with Figma tokens." ShowIcon="true" />
+        </SpaceItem>
+        <SpaceItem>
+            <Alert Type="@AlertType.Info" Message="Info" Description="This is an info alert styled with Figma tokens." ShowIcon="true" />
+        </SpaceItem>
+        <SpaceItem>
+            <Alert Type="@AlertType.Warning" Message="Warning" Description="This is a warning alert styled with Figma tokens." ShowIcon="true" />
+        </SpaceItem>
+        <SpaceItem>
+            <Alert Type="@AlertType.Error" Message="Error" Description="This is an error alert styled with Figma tokens." ShowIcon="true" />
+        </SpaceItem>
+    </Space>
+
+    <Divider>Tags</Divider>
+    <Space>
+        <SpaceItem><Tag Color="@PresetColor.Green.ToString()">Success</Tag></SpaceItem>
+        <SpaceItem><Tag Color="@PresetColor.Blue.ToString()">Processing</Tag></SpaceItem>
+        <SpaceItem><Tag Color="@PresetColor.Red.ToString()">Error</Tag></SpaceItem>
+        <SpaceItem><Tag Color="@PresetColor.Orange.ToString()">Warning</Tag></SpaceItem>
+        <SpaceItem><Tag>Default</Tag></SpaceItem>
+    </Space>
+
+    <Divider>Form Components</Divider>
+    <Form Model="@_formModel" LabelColSpan="4" WrapperColSpan="20">
+        <FormItem Label="Input">
+            <Input @bind-Value="@context.Name" Placeholder="Enter your name" />
+        </FormItem>
+        <FormItem Label="Select">
+            <SimpleSelect @bind-Value="@context.Option" Placeholder="Select an option">
+                <SelectOptions>
+                    <SimpleSelectOption Value="1" Label="Option 1" />
+                    <SimpleSelectOption Value="2" Label="Option 2" />
+                    <SimpleSelectOption Value="3" Label="Option 3" />
+                </SelectOptions>
+            </SimpleSelect>
+        </FormItem>
+        <FormItem Label="Switch">
+            <Switch @bind-Checked="@context.Enabled" />
+        </FormItem>
+        <FormItem WrapperColOffset="4">
+            <Button Type="@ButtonType.Primary" HtmlType="submit">Submit</Button>
+        </FormItem>
+    </Form>
+
+    <Divider>Progress</Divider>
+    <Space Direction="@SpaceDirection.Vertical" Style="width: 100%;">
+        <SpaceItem>
+            <Progress Percent="30" />
+        </SpaceItem>
+        <SpaceItem>
+            <Progress Percent="70" Status="@ProgressStatus.Active" />
+        </SpaceItem>
+        <SpaceItem>
+            <Progress Percent="100" />
+        </SpaceItem>
+        <SpaceItem>
+            <Progress Percent="50" Status="@ProgressStatus.Exception" />
+        </SpaceItem>
+    </Space>
+
+    <Divider>Base Color Palette (from Figma)</Divider>
+    <Row Gutter="16">
+        @foreach (var color in _baseColors)
+        {
+            <AntDesign.Col Span="4">
+                <div class="palette-card">
+                    <div class="palette-title">@color</div>
+                    @for (int i = 1; i <= 10; i++)
+                    {
+                        var shade = i;
+                        <div class="palette-swatch" style="background: var(--ant-@(color.ToLower())-@shade);">
+                            @shade
+                        </div>
+                    }
+                </div>
+            </AntDesign.Col>
+        }
+    </Row>
 </div>
 
-<div>
-    <Tooltip Title="@IconType.Outline.Search">
-        <Button Type="ButtonType.Primary" Shape="ButtonShape.Circle" Icon="@IconType.Outline.Search" />
-    </Tooltip>
-    <Button Type="ButtonType.Primary" Shape="ButtonShape.Circle">A</Button>
-    <Button Type="ButtonType.Primary" Icon="@IconType.Outline.Search">Search</Button>
-    <Tooltip Title="@IconType.Outline.Search">
-        <Button Shape="ButtonShape.Circle" Icon="@IconType.Outline.Search" />
-    </Tooltip>
-    <Button Icon="@IconType.Outline.Search">Search</Button>
+<style>
+    .demo-container {
+        padding: 24px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-    <br />
+    .color-swatch {
+        padding: 12px;
+        margin: 4px 0;
+        color: white;
+        text-align: center;
+        border-radius: 4px;
+        font-size: 12px;
+    }
 
-    <Tooltip Title="@IconType.Outline.Search">
-        <Button Shape="ButtonShape.Circle" Icon="@IconType.Outline.Search" />
-    </Tooltip>
-    <Button Icon="@IconType.Outline.Search">Search</Button>
-    <Tooltip Title="@IconType.Outline.Search">
-        <Button Type="ButtonType.Dashed" Shape="ButtonShape.Circle" Icon="@IconType.Outline.Search" />
-    </Tooltip>
-    <Button Type="ButtonType.Dashed" Icon="@IconType.Outline.Search">Search</Button>
+    .palette-card {
+        background: var(--ant-color-bg-container);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px var(--ant-default-shadow);
+        margin-bottom: 16px;
+    }
 
-    <br />
+    .palette-title {
+        padding: 12px;
+        font-weight: 600;
+        text-align: center;
+        background: var(--ant-color-fill-alter);
+        border-bottom: 1px solid var(--ant-color-border-secondary);
+    }
 
+    .palette-swatch {
+        padding: 8px 12px;
+        color: white;
+        font-size: 12px;
+        text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    }
 
-    <Button IconFont="icon-tuichu">Exit</Button>
-</div>
-
-<script src="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"></script>
-
-<div>
-    <CheckboxGroup Options="@plainOptions" @bind-Value="@_value" TValue="string" OnChange="OnChange" />
-    <br />
-    <br />
-    <CheckboxGroup Options="@options" @bind-Value="@_value" TValue="string" OnChange="OnChange2" />
-    <br />
-    <br />
-    <CheckboxGroup Options="@OptionsWithDisabled" Disabled @bind-Value="@_value" TValue="string" OnChange="OnChange" />
-    <br />
-    <br />
-    <CheckboxGroup Disabled @bind-Value="@_value" TValue="string" OnChange="OnChange">
-        <Checkbox Label="Apple" />
-        <Checkbox Label="Pear" />
-        <Checkbox Label="Orange" />
-    </CheckboxGroup>
-</div>
-
-@string.Join(",",_value)
+    .palette-swatch:nth-child(2),
+    .palette-swatch:nth-child(3),
+    .palette-swatch:nth-child(4) {
+        color: var(--ant-color-text);
+        text-shadow: none;
+    }
+</style>
 
 @code {
-    string[] _value = new[] { "Apple" };
+    private FormModel _formModel = new();
+    private string[] _baseColors = { "Seablue", "Aquamarine", "Green", "Yellow", "Orange", "Red", "Pink", "Purple", "Neutral" };
 
-    string[] plainOptions = { "Apple", "Pear", "Orange" };
-
-    CheckboxOption<string>[] options = new CheckboxOption<string>[]
+    public class FormModel
     {
-        new() {Label = "Apple", Value = "Apple"},
-        new() {Label = "Pear", Value = "Pear"},
-        new() {Label = "Orange", Value = "Orange"},
-    };
-
-    CheckboxOption<string>[] OptionsWithDisabled = new CheckboxOption<string>[]
-    {
-        new() {Label = "Apple", Value = "Apple"},
-        new() {Label = "Pear", Value = "Pear"},
-        new() {Label = "Orange", Value = "Orange", Disabled = false},
-    };
-
-    void OnChange(string[] checkedValues)
-    {
-        Console.WriteLine($"checked = {JsonSerializer.Serialize(checkedValues)}");
-    }
-
-    void OnChange2(string[] checkedValues)
-    {
-        Console.WriteLine($"2 checked = {JsonSerializer.Serialize(checkedValues)}");
+        public string Name { get; set; } = "";
+        public string Option { get; set; } = "";
+        public bool Enabled { get; set; }
     }
 }
-
-<Menu Style="width: 256px;"
-      DefaultSelectedKeys=@(new[] { "1" })
-      DefaultOpenKeys=@(new[] { "sub1" })
-      Mode=@MenuMode.Inline>
-    <SubMenu Key="sub1" TitleTemplate=@sub1Title>
-        <MenuItemGroup Key="g1" Title="Item 1">
-            <MenuItem Key="1">Option 1</MenuItem>
-            <MenuItem Key="2">Option 2</MenuItem>
-        </MenuItemGroup>
-        <MenuItemGroup Key="g2" Title="Item 2">
-            <MenuItem Key="3">Option 3</MenuItem>
-            <MenuItem Key="4">Option 4</MenuItem>
-        </MenuItemGroup>
-    </SubMenu>
-    <SubMenu Key="sub2" TitleTemplate=@sub2Title>
-        <MenuItem Key="5">Option 5</MenuItem>
-        <MenuItem Key="6">Option 6</MenuItem>
-        <SubMenu Key="sub3" Title="Submenu">
-            <MenuItem Key="7">Option 7</MenuItem>
-            <MenuItem Key="8">Option 8</MenuItem>
-        </SubMenu>
-    </SubMenu>
-    <SubMenu Key="sub4" TitleTemplate=@sub4Title>
-        <MenuItem Key="9">Option 9</MenuItem>
-        <MenuItem Key="10">Option 10</MenuItem>
-        <MenuItem Key="11">Option 11</MenuItem>
-        <MenuItem Key="12">Option 12</MenuItem>
-    </SubMenu>
-</Menu>
-
-@code
-{
-    RenderFragment sub1Title =
-    @<span>
-        <Icon Type="@IconType.Outline.Mail" />
-        <span>Navigation One</span>
-    </span>;
-
-    RenderFragment sub2Title =
-    @<span>
-        <Icon Type="@IconType.Outline.Appstore" />
-        <span>Navigation Two</span>
-    </span>;
-
-    RenderFragment sub4Title =
-    @<span>
-        <Icon Type="@IconType.Outline.Setting" />
-        <span>Navigation Three</span>
-    </span>;
-}
-
