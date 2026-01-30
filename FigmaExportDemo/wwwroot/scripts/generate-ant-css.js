@@ -49,9 +49,8 @@ function collectTokens(node, pathSegments) {
   }
 
   if (Object.prototype.hasOwnProperty.call(node, 'value') &&
-      Object.prototype.hasOwnProperty.call(node, 'type') &&
-      node.type === 'color') {
-    const token = { path: [...pathSegments], value: node.value };
+      Object.prototype.hasOwnProperty.call(node, 'type')) {
+    const token = { path: [...pathSegments], value: node.value, type: node.type };
     tokens.push(token);
 
     const fullPath = pathSegments.join('.');
@@ -73,7 +72,7 @@ function collectTokens(node, pathSegments) {
 collectTokens(tokensData, []);
 
 if (tokens.length === 0) {
-  fail('No color tokens found in tokens.json.');
+  fail('No tokens found in tokens.json.');
 }
 
 const referencePattern = /^\{(.+)\}$/;
@@ -101,19 +100,19 @@ function resolveValue(rawValue, stack = []) {
   return resolveValue(token.value, stack.concat(refPath));
 }
 
-function getVariableDescriptor(pathSegments) {
+function getVariableDescriptor(pathSegments, tokenType) {
   const lastSegment = pathSegments[pathSegments.length - 1];
   const colorsIndex = pathSegments.indexOf('Colors');
 
   if (colorsIndex !== -1) {
     const afterColors = pathSegments.slice(colorsIndex + 1);
 
-    if (afterColors[0] === 'Base' && afterColors.length >= 3 && isNumeric(lastSegment)) {
+    if (tokenType === 'color' && afterColors[0] === 'Base' && afterColors.length >= 3 && isNumeric(lastSegment)) {
       const paletteName = afterColors[1];
       return { name: `--ant-${toKebab(paletteName)}-${lastSegment}`, bucket: 'palette' };
     }
 
-    if (afterColors[0] === 'Gradient' && (lastSegment === 'From' || lastSegment === 'To')) {
+    if (tokenType === 'color' && afterColors[0] === 'Gradient' && (lastSegment === 'From' || lastSegment === 'To')) {
       const gradientNameParts = afterColors.slice(1, -1).map(toKebab).filter(Boolean);
       const gradientName = gradientNameParts.join('-') || 'default';
       return { name: `--ant-gradient-${gradientName}-${toKebab(lastSegment)}`, bucket: 'overrides' };
@@ -157,7 +156,7 @@ const componentTokenEntries = [];
 
 for (const token of tokens) {
   const resolvedValue = resolveValue(token.value);
-  const descriptor = getVariableDescriptor(token.path);
+  const descriptor = getVariableDescriptor(token.path, token.type);
 
   if (!descriptor || !descriptor.name.startsWith('--ant-')) {
     continue;
@@ -171,7 +170,8 @@ for (const token of tokens) {
       componentTokenEntries.push({
         componentName: descriptor.componentName,
         tokenKey: descriptor.tokenKey,
-        variableName: descriptor.name
+        variableName: descriptor.name,
+        tokenType: token.type
       });
     }
   }
@@ -200,17 +200,82 @@ function buildCssContent(variables, headerLabel, extraBlocks = []) {
   return lines.join('\n');
 }
 
-function inferProperty(tokenKey) {
+function inferProperty(tokenKey, tokenType) {
   const key = tokenKey.toLowerCase();
-  if (key.includes('bg') || key.includes('background')) {
-    return 'background-color';
+  const type = String(tokenType || '').toLowerCase();
+
+  if (type === 'color') {
+    if (key.includes('bg') || key.includes('background')) {
+      return 'background-color';
+    }
+    if (key.includes('border')) {
+      return 'border-color';
+    }
+    if (key.includes('text') || key.includes('color') || key.includes('icon')) {
+      return 'color';
+    }
+    return null;
   }
-  if (key.includes('border')) {
-    return 'border-color';
+
+  if (type === 'text') {
+    if (key.includes('fontfamily')) {
+      return 'font-family';
+    }
+    return null;
   }
-  if (key.includes('text') || key.includes('color') || key.includes('icon')) {
-    return 'color';
+
+  if (type === 'dimension' || type === 'number') {
+    if (key.includes('paddinginline')) {
+      return 'padding-inline';
+    }
+    if (key.includes('paddingblock')) {
+      return 'padding-block';
+    }
+    if (key.includes('padding')) {
+      return 'padding';
+    }
+    if (key.includes('margin')) {
+      return 'margin';
+    }
+    if (key.includes('outline')) {
+      return 'outline-width';
+    }
+    if (key.includes('border') && key.includes('radius')) {
+      return 'border-radius';
+    }
+    if (key.includes('radius')) {
+      return 'border-radius';
+    }
+    if (key.includes('linewidth') || key.includes('borderwidth')) {
+      return 'border-width';
+    }
+    if (key.includes('fontweight')) {
+      return 'font-weight';
+    }
+    if (key.includes('fontsize')) {
+      return 'font-size';
+    }
+    if (key.includes('lineheight')) {
+      return 'line-height';
+    }
+    if (key.includes('height')) {
+      return 'height';
+    }
+    if (key.includes('width')) {
+      return 'width';
+    }
+    if (key.includes('gap')) {
+      return 'gap';
+    }
+    if (key.includes('size')) {
+      return 'font-size';
+    }
   }
+
+  if (type === 'opacity') {
+    return 'opacity';
+  }
+
   return null;
 }
 
@@ -246,7 +311,7 @@ function buildComponentOverrides(tokens) {
   const rules = new Map();
 
   for (const token of tokens) {
-    const property = inferProperty(token.tokenKey);
+    const property = inferProperty(token.tokenKey, token.tokenType);
     if (!property) {
       continue;
     }
