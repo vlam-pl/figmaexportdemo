@@ -1,0 +1,571 @@
+{
+  "sourceCssPath": "C:\\Users\\vlam\\.nuget\\packages\\antdesign\\1.5.1\\staticwebassets\\css\\ant-design-blazor.css",
+  "totalHardcodedColors": 85,
+  "matchedCount": 25,
+  "unmatchedCount": 60,
+  "colorMatches": [
+    {
+      "hex": "#000000",
+      "count": 1,
+      "tokens": [
+        "1. Colors/Light.Colors.Neutral.Bg.colorBgSolid",
+        "1. Colors/Light.Colors.Neutral.colorTextBase",
+        "4. Components/Value.Components.Button.Global.colorBgSolid"
+      ]
+    },
+    {
+      "hex": "#000c17",
+      "count": 1,
+      "tokens": [
+        "4. Components/Value.Components.Menu.Component.darkSubMenuItemBg"
+      ]
+    },
+    {
+      "hex": "#001529",
+      "count": 6,
+      "tokens": [
+        "4. Components/Value.Components.Menu.Component.darkItemBg",
+        "4. Components/Value.Components.Menu.Component.darkPopupBg",
+        "4. Components/Value.Components.Layout.Component.headerBg",
+        "4. Components/Value.Components.Layout.Component.siderBg"
+      ]
+    },
+    {
+      "hex": "#002140",
+      "count": 1,
+      "tokens": [
+        "4. Components/Value.Components.Layout.Component.triggerBg"
+      ]
+    },
+    {
+      "hex": "#1d39c4",
+      "count": 1,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Geekblue.7"
+      ]
+    },
+    {
+      "hex": "#2f54eb",
+      "count": 9,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Geekblue.6"
+      ]
+    },
+    {
+      "hex": "#7cb305",
+      "count": 1,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Lime.7"
+      ]
+    },
+    {
+      "hex": "#a0d911",
+      "count": 9,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Lime.6"
+      ]
+    },
+    {
+      "hex": "#adc6ff",
+      "count": 1,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Geekblue.3"
+      ]
+    },
+    {
+      "hex": "#bfbfbf",
+      "count": 18,
+      "tokens": [
+        "4. Components/Value.Components.Slider.Component.handleColorDisabled",
+        "4. Components/Value.Components.Splitter.Component.handleColorDisabled"
+      ]
+    },
+    {
+      "hex": "#d4380d",
+      "count": 1,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Volcano.7"
+      ]
+    },
+    {
+      "hex": "#d48806",
+      "count": 1,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Gold.7"
+      ]
+    },
+    {
+      "hex": "#eaff8f",
+      "count": 1,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Lime.3"
+      ]
+    },
+    {
+      "hex": "#f0f0f0",
+      "count": 84,
+      "tokens": [
+        "1. Colors/Light.Colors.Neutral.Fill.colorFilledHandleBg",
+        "4. Components/Value.Components.Tour.Component.primaryNextBtnHoverBg",
+        "4. Components/Value.Components.InputNumber.Component.filledHandleBg"
+      ]
+    },
+    {
+      "hex": "#fa541c",
+      "count": 9,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Volcano.6"
+      ]
+    },
+    {
+      "hex": "#faad14",
+      "count": 38,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Gold.6"
+      ]
+    },
+    {
+      "hex": "#fafafa",
+      "count": 25,
+      "tokens": [
+        "1. Colors/Light.Colors.Neutral.Fill.colorFillAlterSolid",
+        "4. Components/Value.Components.Table.Component.rowHoverBg",
+        "4. Components/Value.Components.Table.Component.bodySortBg"
+      ]
+    },
+    {
+      "hex": "#fcffe6",
+      "count": 1,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Lime.1"
+      ]
+    },
+    {
+      "hex": "#feffe6",
+      "count": 2,
+      "tokens": [
+        "1. Colors/Light.Colors.Base.Yellow.1",
+        "1. Colors/Light.Colors.Domain.Project Status.colorTemplateBg"
+      ]
+    },
+    {
+      "hex": "#ffbb96",
+      "count": 1,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Volcano.3"
+      ]
+    },
+    {
+      "hex": "#ffc53d",
+      "count": 8,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Gold.5"
+      ]
+    },
+    {
+      "hex": "#ffe58f",
+      "count": 4,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Gold.3"
+      ]
+    },
+    {
+      "hex": "#fff2e8",
+      "count": 1,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Volcano.1"
+      ]
+    },
+    {
+      "hex": "#fffbe6",
+      "count": 3,
+      "tokens": [
+        "1. Colors/Light.Colors.Base._deprecated_Gold.1"
+      ]
+    },
+    {
+      "hex": "#ffffff",
+      "count": 199,
+      "tokens": [
+        "1. Colors/Light.Colors.Base.Neutral.0",
+        "1. Colors/Light.Colors.Neutral.Text.colorTextLightSolid",
+        "1. Colors/Light.Colors.Neutral.Text.solidTextColor",
+        "1. Colors/Light.Colors.Neutral.Bg.colorBgContainer",
+        "1. Colors/Light.Colors.Neutral.Bg.colorBgElevated",
+        "1. Colors/Light.Colors.Neutral.Bg.colorBorderBg",
+        "1. Colors/Light.Colors.Neutral.colorWhite",
+        "1. Colors/Light.Colors.Neutral.colorBgBase",
+        "1. Colors/Light.Colors.Neutral.Shadow.dangerShadow",
+        "1. Colors/Light.Colors.Chart.Sequential.Blue.Size3.1",
+        "1. Colors/Light.Colors.Chart.Categorical.Size3.1",
+        "1. Colors/Light.Colors.Domain.Risk.Low",
+        "1. Colors/Light.Colors.Domain.Risk.Verylow",
+        "1. Colors/Light.Colors.Domain.Risk.Medium",
+        "1. Colors/Light.Colors.Domain.Risk.High",
+        "1. Colors/Light.Colors.Domain.Risk.Veryhigh",
+        "1. Colors/Light.Colors.Domain.Chance.Low",
+        "1. Colors/Light.Colors.Domain.Chance.Medium",
+        "1. Colors/Light.Colors.Domain.Chance.High",
+        "1. Colors/Light.Colors.Domain.Project Status.colorArchivedText",
+        "4. Components/Value.Components.Segmented.Global.segmentedBgColorSelected",
+        "4. Components/Value.Components.Segmented.Global.colorBgElevated",
+        "4. Components/Value.Components.Segmented.Component.itemSelectedBg",
+        "4. Components/Value.Components.Table.Component.filterDropdownMenuBg",
+        "4. Components/Value.Components.Table.Component.filterDropdownBg",
+        "4. Components/Value.Components.Table.Global.colorBgContainer",
+        "4. Components/Value.Components.Menu.Component.popupBg",
+        "4. Components/Value.Components.Menu.Component.itemBg",
+        "4. Components/Value.Components.Menu.Component.darkItemSelectedColor",
+        "4. Components/Value.Components.Menu.Component.darkItemHoverColor",
+        "4. Components/Value.Components.Menu.Global.colorBgElevated",
+        "4. Components/Value.Components.Menu.Global.colorBgContainer",
+        "4. Components/Value.Components.Image.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Avatar.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Avatar.Global.colorBorderBg",
+        "4. Components/Value.Components.Input.Global.colorBgContainer",
+        "4. Components/Value.Components.Input.Component.activeBg",
+        "4. Components/Value.Components.Input.Component.hoverBg",
+        "4. Components/Value.Components.Tour.Global.colorWhite",
+        "4. Components/Value.Components.Tour.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Tour.Global.colorBgElevated",
+        "4. Components/Value.Components.QRCode.Global.colorWhite",
+        "4. Components/Value.Components.Upload.Global.colorTextLightSolid",
+        "4. Components/Value.Components.TreeSelect.Global.colorWhite",
+        "4. Components/Value.Components.TreeSelect.Global.colorBgElevated",
+        "4. Components/Value.Components.TreeSelect.Global.colorBgContainer",
+        "4. Components/Value.Components.Tree.Global.colorWhite",
+        "4. Components/Value.Components.Tree.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Tree.Global.colorBgContainer",
+        "4. Components/Value.Components.Tree.Component.directoryNodeSelectedColor",
+        "4. Components/Value.Components.Transfer.Global.colorBgContainer",
+        "4. Components/Value.Components.Switch.Global.colorWhite",
+        "4. Components/Value.Components.Switch.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Switch.Component.handleBg",
+        "4. Components/Value.Components.TimePicker.Global.colorTextLightSolid",
+        "4. Components/Value.Components.TimePicker.Global.colorBgElevated",
+        "4. Components/Value.Components.TimePicker.Global.colorBgContainer",
+        "4. Components/Value.Components.TimePicker.Component.activeBg",
+        "4. Components/Value.Components.TimePicker.Component.hoverBg",
+        "4. Components/Value.Components.Timeline.Global.colorBgContainer",
+        "4. Components/Value.Components.Timeline.Component.dotBg",
+        "4. Components/Value.Components.Tabs.Global.colorBgContainer",
+        "4. Components/Value.Components.Tag.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Steps.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Steps.Global.colorBorderBg",
+        "4. Components/Value.Components.Steps.Global.colorBgContainer",
+        "4. Components/Value.Components.Spin.Global.colorBgContainer",
+        "4. Components/Value.Components.Slider.Global.colorBgElevated",
+        "4. Components/Value.Components.Slider.Global.colorBgContainer",
+        "4. Components/Value.Components.Select.Global.colorBgElevated",
+        "4. Components/Value.Components.Select.Global.colorBgContainer",
+        "4. Components/Value.Components.Select.Component.selectorBg",
+        "4. Components/Value.Components.Select.Component.clearBg",
+        "4. Components/Value.Components.Radio.Global.colorWhite",
+        "4. Components/Value.Components.Radio.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Radio.Global.colorBgContainer",
+        "4. Components/Value.Components.Radio.Component.buttonSolidCheckedColor",
+        "4. Components/Value.Components.Radio.Component.buttonCheckedBg",
+        "4. Components/Value.Components.Radio.Component.buttonBg",
+        "4. Components/Value.Components.Radio.Component.radioColor",
+        "4. Components/Value.Components.Progress.Global.colorBgContainer",
+        "4. Components/Value.Components.Popover.Global.colorBgElevated",
+        "4. Components/Value.Components.Pagination.Global.colorBgContainer",
+        "4. Components/Value.Components.Pagination.Component.itemLinkBg",
+        "4. Components/Value.Components.Pagination.Component.itemInputBg",
+        "4. Components/Value.Components.Pagination.Component.itemBg",
+        "4. Components/Value.Components.Pagination.Component.itemActiveBg",
+        "4. Components/Value.Components.Notification.Global.colorBgElevated",
+        "4. Components/Value.Components.Tooltip.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Modal.Component.headerBg",
+        "4. Components/Value.Components.Modal.Component.contentBg",
+        "4. Components/Value.Components.Message.Component.contentBg",
+        "4. Components/Value.Components.InputNumber.Global.colorBgContainer",
+        "4. Components/Value.Components.InputNumber.Component.handleBg",
+        "4. Components/Value.Components.InputNumber.Component.activeBg",
+        "4. Components/Value.Components.InputNumber.Component.hoverBg",
+        "4. Components/Value.Components.FloatButton.Global.colorTextLightSolid",
+        "4. Components/Value.Components.FloatButton.Global.colorBgElevated",
+        "4. Components/Value.Components.Dropdown.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Dropdown.Global.colorBgElevated",
+        "4. Components/Value.Components.Drawer.Global.colorBgElevated",
+        "4. Components/Value.Components.DatePicker.Global.colorTextLightSolid",
+        "4. Components/Value.Components.DatePicker.Global.colorBgElevated",
+        "4. Components/Value.Components.DatePicker.Global.colorBgContainer",
+        "4. Components/Value.Components.DatePicker.Component.activeBg",
+        "4. Components/Value.Components.DatePicker.Component.hoverBg",
+        "4. Components/Value.Components.Collapse.Global.colorBgContainer",
+        "4. Components/Value.Components.Collapse.Component.contentBg",
+        "4. Components/Value.Components.Checkbox.Global.colorWhite",
+        "4. Components/Value.Components.Checkbox.Global.colorBgContainer",
+        "4. Components/Value.Components.Card.Global.colorBgContainer",
+        "4. Components/Value.Components.Carousel.Global.colorBgContainer",
+        "4. Components/Value.Components.Cascader.Global.colorWhite",
+        "4. Components/Value.Components.Cascader.Global.colorBgContainer",
+        "4. Components/Value.Components.Calendar.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Calendar.Global.colorBgContainer",
+        "4. Components/Value.Components.Calendar.Component.fullPanelBg",
+        "4. Components/Value.Components.Calendar.Component.fullBg",
+        "4. Components/Value.Components.Button.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Button.Global.colorBgContainer",
+        "4. Components/Value.Components.Button.Component.primaryColor",
+        "4. Components/Value.Components.Button.Component.defaultBg",
+        "4. Components/Value.Components.Button.Component.dangerColor",
+        "4. Components/Value.Components.Button.Component.defaultHoverBg",
+        "4. Components/Value.Components.Button.Component.defaultActiveBg",
+        "4. Components/Value.Components.Button.Component.solidTextColor",
+        "4. Components/Value.Components.Badge.Global.colorTextLightSolid",
+        "4. Components/Value.Components.Badge.Global.colorBorderBg",
+        "4. Components/Value.Components.Badge.Global.colorBgContainer",
+        "4. Components/Value.Components.AutoComplete.Global.colorBgElevated",
+        "4. Components/Value.Components.AutoComplete.Global.colorBgContainer",
+        "4. Components/Value.Components.Layout.Component.lightSiderBg",
+        "4. Components/Value.Components.Layout.Component.lightTriggerBg",
+        "4. Components/Value.Components.Layout.Component.triggerColor",
+        "4. Components/Value.Components.Splitter.Global.colorBgElevated",
+        "4. Components/Value.Components.Splitter.Global.colorBgContainer"
+      ]
+    }
+  ],
+  "unmatched": [
+    {
+      "hex": "#08979c",
+      "count": 1
+    },
+    {
+      "hex": "#096dd9",
+      "count": 39
+    },
+    {
+      "hex": "#13c2c2",
+      "count": 9
+    },
+    {
+      "hex": "#1890ff",
+      "count": 163
+    },
+    {
+      "hex": "#262626",
+      "count": 2
+    },
+    {
+      "hex": "#389e0d",
+      "count": 1
+    },
+    {
+      "hex": "#40a9ff",
+      "count": 87
+    },
+    {
+      "hex": "#46a6ff",
+      "count": 1
+    },
+    {
+      "hex": "#52c41a",
+      "count": 26
+    },
+    {
+      "hex": "#531dab",
+      "count": 1
+    },
+    {
+      "hex": "#595959",
+      "count": 1
+    },
+    {
+      "hex": "#69c0ff",
+      "count": 2
+    },
+    {
+      "hex": "#722ed1",
+      "count": 9
+    },
+    {
+      "hex": "#7ec1ff",
+      "count": 12
+    },
+    {
+      "hex": "#87e8de",
+      "count": 1
+    },
+    {
+      "hex": "#8cc8ff",
+      "count": 1
+    },
+    {
+      "hex": "#91d5ff",
+      "count": 6
+    },
+    {
+      "hex": "#a6a6a6",
+      "count": 2
+    },
+    {
+      "hex": "#aeb8c2",
+      "count": 1
+    },
+    {
+      "hex": "#b7eb8f",
+      "count": 3
+    },
+    {
+      "hex": "#bae7ff",
+      "count": 5
+    },
+    {
+      "hex": "#c41d7f",
+      "count": 2
+    },
+    {
+      "hex": "#cbe6ff",
+      "count": 2
+    },
+    {
+      "hex": "#cccccc",
+      "count": 2
+    },
+    {
+      "hex": "#cf1322",
+      "count": 1
+    },
+    {
+      "hex": "#d3adf7",
+      "count": 1
+    },
+    {
+      "hex": "#d46b08",
+      "count": 1
+    },
+    {
+      "hex": "#d4b106",
+      "count": 1
+    },
+    {
+      "hex": "#d9363e",
+      "count": 14
+    },
+    {
+      "hex": "#d9d9d9",
+      "count": 148
+    },
+    {
+      "hex": "#dce0e6",
+      "count": 2
+    },
+    {
+      "hex": "#dcf4ff",
+      "count": 2
+    },
+    {
+      "hex": "#e1e1e1",
+      "count": 1
+    },
+    {
+      "hex": "#e6e6e6",
+      "count": 2
+    },
+    {
+      "hex": "#e6f7ff",
+      "count": 20
+    },
+    {
+      "hex": "#e6fffb",
+      "count": 1
+    },
+    {
+      "hex": "#eb2f96",
+      "count": 18
+    },
+    {
+      "hex": "#f0f2f5",
+      "count": 2
+    },
+    {
+      "hex": "#f0f5ff",
+      "count": 1
+    },
+    {
+      "hex": "#f3f3f3",
+      "count": 1
+    },
+    {
+      "hex": "#f4f4f4",
+      "count": 1
+    },
+    {
+      "hex": "#f5222d",
+      "count": 9
+    },
+    {
+      "hex": "#f5f5f5",
+      "count": 85
+    },
+    {
+      "hex": "#f5f5f7",
+      "count": 1
+    },
+    {
+      "hex": "#f6ffed",
+      "count": 3
+    },
+    {
+      "hex": "#f9f0ff",
+      "count": 1
+    },
+    {
+      "hex": "#fa8c16",
+      "count": 9
+    },
+    {
+      "hex": "#fadb14",
+      "count": 11
+    },
+    {
+      "hex": "#fbfbfb",
+      "count": 1
+    },
+    {
+      "hex": "#ff4d4f",
+      "count": 72
+    },
+    {
+      "hex": "#ff7875",
+      "count": 22
+    },
+    {
+      "hex": "#ffa39e",
+      "count": 1
+    },
+    {
+      "hex": "#ffadd2",
+      "count": 2
+    },
+    {
+      "hex": "#ffccc7",
+      "count": 2
+    },
+    {
+      "hex": "#ffd591",
+      "count": 1
+    },
+    {
+      "hex": "#fff0f6",
+      "count": 2
+    },
+    {
+      "hex": "#fff1f0",
+      "count": 3
+    },
+    {
+      "hex": "#fff2f0",
+      "count": 3
+    },
+    {
+      "hex": "#fff7e6",
+      "count": 1
+    },
+    {
+      "hex": "#fffb8f",
+      "count": 1
+    }
+  ]
+}

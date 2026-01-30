@@ -7,22 +7,12 @@
     <BlazorDisableThrowNavigationException>true</BlazorDisableThrowNavigationException>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <!-- Token Converter Configuration -->
-    <TokenConverterProject>$(MSBuildThisFileDirectory)..\tools\TokenConverter\TokenConverter.csproj</TokenConverterProject>
-    <FigmaTokensFile>$(MSBuildThisFileDirectory)..\tokens.json</FigmaTokensFile>
-    <GeneratedCssFile>$(MSBuildThisFileDirectory)wwwroot\css\figma-tokens.css</GeneratedCssFile>
-    <TokenThemeSection>1. Colors/Light</TokenThemeSection>
-  </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="AntDesign" Version="1.5.1" />
   </ItemGroup>
 
-  <!-- Run Token Converter before build -->
-  <Target Name="ConvertFigmaTokens" BeforeTargets="BeforeBuild">
-    <Message Importance="high" Text="Converting Figma tokens to CSS..." />
-    <Exec Command="dotnet run --project &quot;$(TokenConverterProject)&quot; -- &quot;$(FigmaTokensFile)&quot; &quot;$(GeneratedCssFile)&quot; &quot;$(TokenThemeSection)&quot;" />
+  <Target Name="GenerateAntDesignTokenCss" BeforeTargets="Build">
+    <Exec Command="node &quot;$(MSBuildThisFileDirectory)wwwroot\scripts\generate-ant-css.js&quot;" WorkingDirectory="$(MSBuildThisFileDirectory)..\" />
   </Target>
 
 </Project>
