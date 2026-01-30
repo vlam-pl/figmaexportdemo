@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const repoRoot = path.resolve(__dirname, '..', '..');
+const repoRoot = path.resolve(__dirname, '..', '..', '..');
 const tokensPath = path.join(repoRoot, 'tokens.json');
 const reportDir = __dirname;
 const reportPath = path.join(reportDir, 'ant-hardcoded-colors.json');
