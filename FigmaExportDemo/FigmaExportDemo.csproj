@@ -11,8 +11,4 @@
     <PackageReference Include="AntDesign" Version="1.5.1" />
   </ItemGroup>
 
-  <Target Name="GenerateAntDesignTokenCss" BeforeTargets="Build">
-    <Exec Command="node &quot;$(MSBuildThisFileDirectory)wwwroot\scripts\generate-ant-css.js&quot;" WorkingDirectory="$(MSBuildThisFileDirectory)..\" />
-  </Target>
-
 </Project>
