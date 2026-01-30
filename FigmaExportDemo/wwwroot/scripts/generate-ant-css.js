@@ -55,6 +55,7 @@ function collectTokens(node, pathSegments) {
 
     const fullPath = pathSegments.join('.');
     tokenByPath.set(fullPath, token);
+
     if (pathSegments.length > 1) {
       const normalizedPath = pathSegments.slice(1).join('.');
       tokenByPath.set(normalizedPath, token);
@@ -229,6 +230,9 @@ function inferProperty(tokenKey, tokenType) {
   }
 
   if (type === 'dimension' || type === 'number') {
+    if (key.includes('controlheight')) {
+      return 'height';
+    }
     if (key.includes('paddinginline')) {
       return 'padding-inline';
     }
@@ -238,10 +242,19 @@ function inferProperty(tokenKey, tokenType) {
     if (key.includes('padding')) {
       return 'padding';
     }
+    if (key.includes('margininline')) {
+      return 'margin-inline';
+    }
+    if (key.includes('marginblock')) {
+      return 'margin-block';
+    }
     if (key.includes('margin')) {
       return 'margin';
     }
     if (key.includes('outline')) {
+      return 'outline-width';
+    }
+    if (key.includes('linewidthfocus')) {
       return 'outline-width';
     }
     if (key.includes('border') && key.includes('radius')) {
@@ -259,8 +272,11 @@ function inferProperty(tokenKey, tokenType) {
     if (key.includes('fontsize')) {
       return 'font-size';
     }
-    if (key.includes('lineheight')) {
+    if (key.includes('lineheight') || key.includes('fontheight')) {
       return 'line-height';
+    }
+    if (key.includes('iconsize') || (key.includes('icon') && key.includes('size'))) {
+      return 'font-size';
     }
     if (key.includes('height')) {
       return 'height';
