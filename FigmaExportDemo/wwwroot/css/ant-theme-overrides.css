@@ -2218,13 +2218,12 @@
   background-color: var(--ant-breadcrumb-color-bg-text-hover-gradient-to) !important;
   border-color: var(--ant-breadcrumb-color-primary-border) !important;
   border-radius: var(--ant-breadcrumb-border-radius-sm) !important;
-  border-width: var(--ant-breadcrumb-line-width-focus) !important;
   color: var(--ant-breadcrumb-link-color) !important;
   font-family: var(--ant-breadcrumb-font-family) !important;
   font-size: var(--ant-breadcrumb-icon-font-size) !important;
-  height: var(--ant-breadcrumb-font-height) !important;
-  line-height: var(--ant-breadcrumb-line-height) !important;
+  line-height: var(--ant-breadcrumb-font-height) !important;
   margin: var(--ant-breadcrumb-separator-margin) !important;
+  outline-width: var(--ant-breadcrumb-line-width-focus) !important;
   padding: var(--ant-breadcrumb-padding-xxs) !important;
 }
 
@@ -2261,8 +2260,8 @@
   font-family: var(--ant-calendar-font-family) !important;
   font-size: var(--ant-calendar-font-size) !important;
   font-weight: var(--ant-calendar-font-weight-strong) !important;
-  height: var(--ant-calendar-font-height-sm) !important;
-  line-height: var(--ant-calendar-line-height) !important;
+  height: var(--ant-calendar-control-height-lg) !important;
+  line-height: var(--ant-calendar-font-height-sm) !important;
   margin: var(--ant-calendar-margin-xs) !important;
   padding: var(--ant-calendar-padding) !important;
   width: var(--ant-calendar-month-control-width) !important;
@@ -2285,7 +2284,6 @@
   font-family: var(--ant-card-font-family) !important;
   font-size: var(--ant-card-font-size-lg) !important;
   font-weight: var(--ant-card-font-weight-strong) !important;
-  height: var(--ant-card-font-height) !important;
   line-height: var(--ant-card-line-height) !important;
   margin: var(--ant-card-margin-xs) !important;
   padding: var(--ant-card-padding) !important;
@@ -2325,6 +2323,7 @@
   height: var(--ant-cascader-dropdown-height) !important;
   line-height: var(--ant-cascader-line-height) !important;
   margin: var(--ant-cascader-margin-xs) !important;
+  outline-width: var(--ant-cascader-line-width-focus) !important;
   padding: var(--ant-cascader-menu-padding) !important;
   width: var(--ant-cascader-control-width) !important;
 }
@@ -2344,6 +2343,7 @@
   font-size: var(--ant-checkbox-control-interactive-size) !important;
   line-height: var(--ant-checkbox-line-height) !important;
   margin: var(--ant-checkbox-margin-xs) !important;
+  outline-width: var(--ant-checkbox-line-width-focus) !important;
   padding: var(--ant-checkbox-padding-xs) !important;
 }
 
@@ -2355,7 +2355,6 @@
   color: var(--ant-collapse-color-fill-alter) !important;
   font-family: var(--ant-collapse-font-family) !important;
   font-size: var(--ant-collapse-font-size) !important;
-  height: var(--ant-collapse-font-height-lg) !important;
   line-height: var(--ant-collapse-line-height-lg) !important;
   margin: var(--ant-collapse-margin-sm) !important;
   padding: var(--ant-collapse-padding) !important;
@@ -2379,7 +2378,7 @@
   font-size: var(--ant-date-picker-input-font-size-sm) !important;
   font-weight: var(--ant-date-picker-font-weight-strong) !important;
   height: var(--ant-date-picker-without-time-cell-height) !important;
-  line-height: var(--ant-date-picker-line-height) !important;
+  line-height: var(--ant-date-picker-font-height-lg) !important;
   margin: var(--ant-date-picker-margin-xs) !important;
   outline-width: var(--ant-date-picker-control-outline-width) !important;
   padding: var(--ant-date-picker-control-padding-horizontal) !important;
@@ -2423,12 +2422,13 @@
 
 .ant-drawer {
   background-color: var(--ant-drawer-color-bg-elevated) !important;
-  border-width: var(--ant-drawer-line-width-focus) !important;
+  border-width: var(--ant-drawer-line-width) !important;
   color: var(--ant-drawer-color-icon) !important;
   font-size: var(--ant-drawer-font-size-lg) !important;
   font-weight: var(--ant-drawer-font-weight-strong) !important;
   line-height: var(--ant-drawer-line-height-lg) !important;
   margin: var(--ant-drawer-margin-sm) !important;
+  outline-width: var(--ant-drawer-line-width-focus) !important;
   padding: var(--ant-drawer-padding) !important;
 }
 
@@ -2436,13 +2436,13 @@
   background-color: var(--ant-dropdown-color-bg-elevated) !important;
   border-color: var(--ant-dropdown-color-primary-border) !important;
   border-radius: var(--ant-dropdown-border-radius-lg) !important;
-  border-width: var(--ant-dropdown-line-width-focus) !important;
   color: var(--ant-dropdown-color-error) !important;
   font-family: var(--ant-dropdown-font-family) !important;
   font-size: var(--ant-dropdown-font-size) !important;
   height: var(--ant-dropdown-control-height) !important;
   line-height: var(--ant-dropdown-line-height) !important;
   margin: var(--ant-dropdown-margin-xs) !important;
+  outline-width: var(--ant-dropdown-line-width-focus) !important;
   padding: var(--ant-dropdown-control-padding-horizontal) !important;
   padding-block: var(--ant-dropdown-padding-block) !important;
 }
@@ -2486,7 +2486,8 @@
   font-size: var(--ant-form-label-font-size) !important;
   height: var(--ant-form-label-height) !important;
   line-height: var(--ant-form-line-height) !important;
-  margin: var(--ant-form-label-colon-margin-inline-start) !important;
+  margin: var(--ant-form-margin) !important;
+  margin-inline: var(--ant-form-label-colon-margin-inline-start) !important;
   outline-width: var(--ant-form-control-outline-width) !important;
   padding: var(--ant-form-padding-sm) !important;
 }
@@ -2601,6 +2602,8 @@
   height: var(--ant-menu-control-height-lg) !important;
   line-height: var(--ant-menu-line-height) !important;
   margin: var(--ant-menu-margin) !important;
+  margin-inline: var(--ant-menu-icon-margin-inline-end) !important;
+  outline-width: var(--ant-menu-line-width-focus) !important;
   padding: var(--ant-menu-padding) !important;
   width: var(--ant-menu-dropdown-width) !important;
 }
@@ -2614,7 +2617,8 @@
   border-radius: var(--ant-menu-item-border-radius) !important;
   color: var(--ant-menu-sub-menu-item-selected-color) !important;
   height: var(--ant-menu-item-height) !important;
-  margin: var(--ant-menu-item-margin-inline) !important;
+  margin-block: var(--ant-menu-item-margin-block) !important;
+  margin-inline: var(--ant-menu-item-margin-inline) !important;
 }
 
 .ant-message {
@@ -2641,9 +2645,9 @@
   font-family: var(--ant-modal-font-family) !important;
   font-size: var(--ant-modal-title-font-size) !important;
   font-weight: var(--ant-modal-font-weight-strong) !important;
-  height: var(--ant-modal-font-height) !important;
   line-height: var(--ant-modal-title-line-height) !important;
   margin: var(--ant-modal-margin) !important;
+  outline-width: var(--ant-modal-line-width-focus) !important;
   padding: var(--ant-modal-padding) !important;
 }
 
@@ -2663,13 +2667,13 @@
 .ant-notification {
   background-color: var(--ant-notification-color-bg-elevated) !important;
   border-radius: var(--ant-notification-border-radius-lg) !important;
-  border-width: var(--ant-notification-line-width-focus) !important;
   color: var(--ant-notification-color-error) !important;
   font-family: var(--ant-notification-font-family) !important;
   font-size: var(--ant-notification-font-size) !important;
   height: var(--ant-notification-control-height-lg) !important;
   line-height: var(--ant-notification-line-height-lg) !important;
   margin: var(--ant-notification-margin) !important;
+  outline-width: var(--ant-notification-line-width-focus) !important;
   padding: var(--ant-notification-padding-lg) !important;
   width: var(--ant-notification-width) !important;
 }
@@ -2754,7 +2758,8 @@
   font-size: var(--ant-radio-dot-size) !important;
   height: var(--ant-radio-control-height) !important;
   line-height: var(--ant-radio-line-height) !important;
-  margin: var(--ant-radio-wrapper-margin-inline-end) !important;
+  margin: var(--ant-radio-margin-xs) !important;
+  margin-inline: var(--ant-radio-wrapper-margin-inline-end) !important;
   outline-width: var(--ant-radio-control-outline-width) !important;
   padding: var(--ant-radio-padding) !important;
   padding-inline: var(--ant-radio-button-padding-inline) !important;
@@ -2931,6 +2936,7 @@
   height: var(--ant-steps-control-height-lg) !important;
   line-height: var(--ant-steps-title-line-height) !important;
   margin: var(--ant-steps-margin) !important;
+  outline-width: var(--ant-steps-line-width-focus) !important;
   padding: var(--ant-steps-padding) !important;
   width: var(--ant-steps-description-max-width) !important;
 }
@@ -2946,13 +2952,13 @@
 .ant-switch {
   background-color: var(--ant-switch-handle-bg) !important;
   border-color: var(--ant-switch-color-primary-border) !important;
-  border-width: var(--ant-switch-line-width-focus) !important;
   color: var(--ant-switch-color-primary) !important;
   font-family: var(--ant-switch-font-family) !important;
   font-size: var(--ant-switch-handle-size) !important;
   height: var(--ant-switch-control-height) !important;
   line-height: var(--ant-switch-line-height) !important;
   margin: var(--ant-switch-margin-xxs) !important;
+  outline-width: var(--ant-switch-line-width-focus) !important;
 }
 
 .ant-switch-track {
@@ -3012,6 +3018,7 @@
   height: var(--ant-tabs-card-height) !important;
   line-height: var(--ant-tabs-line-height) !important;
   margin: var(--ant-tabs-margin) !important;
+  outline-width: var(--ant-tabs-line-width-focus) !important;
   padding: var(--ant-tabs-padding) !important;
 }
 
@@ -3089,13 +3096,13 @@
 .ant-tour {
   background-color: var(--ant-tour-primary-prev-btn-bg) !important;
   border-radius: var(--ant-tour-border-radius) !important;
-  border-width: var(--ant-tour-line-width-focus) !important;
   color: var(--ant-tour-color-fill) !important;
   font-family: var(--ant-tour-font-family) !important;
   font-size: var(--ant-tour-close-btn-size) !important;
   font-weight: var(--ant-tour-font-weight-strong) !important;
   line-height: var(--ant-tour-line-height) !important;
   margin: var(--ant-tour-margin-xs) !important;
+  outline-width: var(--ant-tour-line-width-focus) !important;
   padding: var(--ant-tour-padding) !important;
 }
 
@@ -3135,6 +3142,7 @@
   height: var(--ant-tree-title-height) !important;
   line-height: var(--ant-tree-line-height) !important;
   margin: var(--ant-tree-margin-xs) !important;
+  outline-width: var(--ant-tree-line-width-focus) !important;
   padding: var(--ant-tree-padding-xs) !important;
 }
 
@@ -3153,6 +3161,7 @@
   height: var(--ant-tree-select-title-height) !important;
   line-height: var(--ant-tree-select-line-height) !important;
   margin: var(--ant-tree-select-margin-xs) !important;
+  outline-width: var(--ant-tree-select-line-width-focus) !important;
   padding: var(--ant-tree-select-padding-xs) !important;
 }
 
@@ -3175,13 +3184,14 @@
   background-color: var(--ant-upload-color-bg-mask) !important;
   border-color: var(--ant-upload-color-border) !important;
   border-radius: var(--ant-upload-border-radius-lg) !important;
-  border-width: var(--ant-upload-line-width-focus) !important;
+  border-width: var(--ant-upload-line-width) !important;
   color: var(--ant-upload-color-error) !important;
   font-family: var(--ant-upload-font-family) !important;
   font-size: var(--ant-upload-font-size) !important;
-  height: var(--ant-upload-font-height-sm) !important;
-  line-height: var(--ant-upload-line-height) !important;
+  height: var(--ant-upload-control-height-lg) !important;
+  line-height: var(--ant-upload-font-height-sm) !important;
   margin: var(--ant-upload-margin) !important;
+  outline-width: var(--ant-upload-line-width-focus) !important;
   padding: var(--ant-upload-padding) !important;
 }
 
