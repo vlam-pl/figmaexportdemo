@@ -66,6 +66,10 @@ function collectTokens(node, pathSegments) {
 
     const fullPath = pathSegments.join('.');
     tokenByPath.set(fullPath, token);
+    if (pathSegments.length > 1) {
+      const normalizedPath = pathSegments.slice(1).join('.');
+      tokenByPath.set(normalizedPath, token);
+    }
 
     const colorsIndex = pathSegments.indexOf('Colors');
     if (colorsIndex !== -1) {
