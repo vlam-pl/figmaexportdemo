@@ -1,10 +1,21 @@
 ﻿@page "/"
 @rendermode InteractiveServer
+@inject IJSRuntime JS
 
 <PageTitle>Design Tokens Demo</PageTitle>
 
 <div class="demo-container">
-    <Title Level="1">Figma Design Tokens Demo</Title>
+    <div class="demo-header">
+        <Title Level="1">Figma Design Tokens Demo</Title>
+        <Space Align="@SpaceAlign.Center">
+            <SpaceItem>
+                <span class="theme-label">@(_isDark ? "Dark" : "Light")</span>
+            </SpaceItem>
+            <SpaceItem>
+                <Switch Checked="@_isDark" CheckedChanged="@OnThemeToggle" />
+            </SpaceItem>
+        </Space>
+    </div>
     <Paragraph>
         This page demonstrates AntDesign Blazor components styled with Figma design tokens.
     </Paragraph>
@@ -35,31 +46,34 @@
     <Row Gutter="16">
         <AntDesign.Col Span="6">
             <Card Title="Primary Colors" Size="@CardSize.Small">
-                <div class="color-swatch" style="background: var(--ant-color-primary);">Primary</div>
-                <div class="color-swatch" style="background: var(--ant-color-primary-hover);">Hover</div>
-                <div class="color-swatch" style="background: var(--ant-color-primary-active);">Active</div>
-                <div class="color-swatch" style="background: var(--ant-color-primary-bg); color: var(--ant-color-text);">Background</div>
+                <div class="color-swatch" style="background: var(--ant-primary-color);">Primary</div>
+                <div class="color-swatch" style="background: var(--ant-primary-color-hover);">Hover</div>
+                <div class="color-swatch" style="background: var(--ant-primary-color-active);">Active</div>
+                <div class="color-swatch" style="background: var(--ant-primary-1); color: #0d1a26;">Background</div>
             </Card>
         </AntDesign.Col>
         <AntDesign.Col Span="6">
             <Card Title="Success Colors" Size="@CardSize.Small">
-                <div class="color-swatch" style="background: var(--ant-color-success);">Success</div>
-                <div class="color-swatch" style="background: var(--ant-color-success-hover);">Hover</div>
-                <div class="color-swatch" style="background: var(--ant-color-success-bg); color: var(--ant-color-text);">Background</div>
+                <div class="color-swatch" style="background: var(--ant-success-color);">Success</div>
+                <div class="color-swatch" style="background: var(--ant-success-color-hover);">Hover</div>
+                <div class="color-swatch" style="background: var(--ant-success-color-active);">Active</div>
+                <div class="color-swatch" style="background: var(--ant-success-color-deprecated-bg); color: #0d1a26;">Background</div>
             </Card>
         </AntDesign.Col>
         <AntDesign.Col Span="6">
             <Card Title="Warning Colors" Size="@CardSize.Small">
-                <div class="color-swatch" style="background: var(--ant-color-warning);">Warning</div>
-                <div class="color-swatch" style="background: var(--ant-color-warning-hover);">Hover</div>
-                <div class="color-swatch" style="background: var(--ant-color-warning-bg); color: var(--ant-color-text);">Background</div>
+                <div class="color-swatch" style="background: var(--ant-warning-color);">Warning</div>
+                <div class="color-swatch" style="background: var(--ant-warning-color-hover);">Hover</div>
+                <div class="color-swatch" style="background: var(--ant-warning-color-active);">Active</div>
+                <div class="color-swatch" style="background: var(--ant-warning-color-deprecated-bg); color: #0d1a26;">Background</div>
             </Card>
         </AntDesign.Col>
         <AntDesign.Col Span="6">
             <Card Title="Error Colors" Size="@CardSize.Small">
-                <div class="color-swatch" style="background: var(--ant-color-error);">Error</div>
-                <div class="color-swatch" style="background: var(--ant-color-error-hover);">Hover</div>
-                <div class="color-swatch" style="background: var(--ant-color-error-bg); color: var(--ant-color-text);">Background</div>
+                <div class="color-swatch" style="background: var(--ant-error-color);">Error</div>
+                <div class="color-swatch" style="background: var(--ant-error-color-hover);">Hover</div>
+                <div class="color-swatch" style="background: var(--ant-error-color-active);">Active</div>
+                <div class="color-swatch" style="background: var(--ant-error-color-deprecated-bg); color: #0d1a26;">Background</div>
             </Card>
         </AntDesign.Col>
     </Row>
@@ -154,6 +168,17 @@
         margin: 0 auto;
     }
 
+    .demo-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .theme-label {
+        font-size: 14px;
+        opacity: 0.65;
+    }
+
     .color-swatch {
         padding: 12px;
         margin: 4px 0;
@@ -164,10 +189,9 @@
     }
 
     .palette-card {
-        background: var(--ant-color-bg-container);
         border-radius: 8px;
         overflow: hidden;
-        box-shadow: 0 2px 8px var(--ant-default-shadow);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
         margin-bottom: 16px;
     }
 
@@ -175,8 +199,7 @@
         padding: 12px;
         font-weight: 600;
         text-align: center;
-        background: var(--ant-color-fill-alter);
-        border-bottom: 1px solid var(--ant-color-border-secondary);
+        border-bottom: 1px solid rgba(128, 128, 128, 0.2);
     }
 
     .palette-swatch {
@@ -189,7 +212,7 @@
     .palette-swatch:nth-child(2),
     .palette-swatch:nth-child(3),
     .palette-swatch:nth-child(4) {
-        color: var(--ant-color-text);
+        color: #0d1a26;
         text-shadow: none;
     }
 </style>
@@ -197,6 +220,23 @@
 @code {
     private FormModel _formModel = new();
     private string[] _baseColors = { "Seablue", "Aquamarine", "Green", "Yellow", "Orange", "Red", "Pink", "Purple", "Neutral" };
+    private bool _isDark;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var theme = await JS.InvokeAsync<string>("themeManager.getTheme");
+            _isDark = theme == "dark";
+            StateHasChanged();
+        }
+    }
+
+    private async Task OnThemeToggle(bool isDark)
+    {
+        _isDark = isDark;
+        await JS.InvokeVoidAsync("themeManager.setTheme", isDark ? "dark" : "light");
+    }
 
     public class FormModel
     {

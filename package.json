@@ -3,7 +3,11 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
+    "generate:theme": "node FigmaExportDemo/wwwroot/scripts/generate-ant-theme.js",
     "generate:ant-css": "node FigmaExportDemo/wwwroot/scripts/generate-ant-css.js",
     "report:ant-colors": "node FigmaExportDemo/wwwroot/scripts/report-ant-hardcoded-colors.js"
+  },
+  "devDependencies": {
+    "less": "^4.2.0"
   }
 }

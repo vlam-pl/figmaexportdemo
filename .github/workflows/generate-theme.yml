@@ -1,0 +1,71 @@
+name: Generate Theme CSS
+
+on:
+  push:
+    paths:
+      - 'tokens.json'
+    branches:
+      - main
+      - master
+  pull_request:
+    paths:
+      - 'tokens.json'
+
+jobs:
+  generate-css:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restore .NET packages
+        run: dotnet restore FigmaExportDemo/FigmaExportDemo.csproj
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Generate theme CSS
+        run: npm run generate:theme
+
+      - name: Check for CSS changes
+        id: check_changes
+        run: |
+          git add FigmaExportDemo/wwwroot/css/*.css
+          if git diff --staged --quiet; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit generated CSS
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: regenerate theme CSS from tokens.json [skip ci]"
+
+      - name: Push changes
+        if: steps.check_changes.outputs.has_changes == 'true' && github.event_name == 'push'
+        run: git push
+
+      - name: Update PR
+        if: steps.check_changes.outputs.has_changes == 'true' && github.event_name == 'pull_request'
+        run: |
+          git push origin HEAD:${{ github.head_ref }}

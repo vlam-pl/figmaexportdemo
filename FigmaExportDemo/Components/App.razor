@@ -7,9 +7,9 @@
     <base href="/" />
     <ResourcePreloader />
     <link rel="stylesheet" href="@Assets["lib/bootstrap/dist/css/bootstrap.min.css"]" />
-    <link rel="stylesheet" href="@Assets["_content/AntDesign/css/ant-design-blazor.css"]" />
+    <link rel="stylesheet" href="@Assets["css/ant-design-blazor-custom.css"]" id="theme-light" />
+    <link rel="stylesheet" href="@Assets["css/ant-design-blazor-dark.css"]" id="theme-dark" disabled />
     <link rel="stylesheet" href="@Assets["css/figma-tokens.css"]" />
-    <link rel="stylesheet" href="@Assets["css/ant-theme-overrides.css"]" />
     <link rel="stylesheet" href="@Assets["app.css"]" />
     <link rel="stylesheet" href="@Assets["FigmaExportDemo.styles.css"]" />
     <ImportMap />
@@ -21,6 +21,32 @@
     <Routes />
     <ReconnectModal />
     <script src="@Assets["_framework/blazor.web.js"]"></script>
+    <script>
+        window.themeManager = {
+            setTheme: function (theme) {
+                var light = document.getElementById('theme-light');
+                var dark = document.getElementById('theme-dark');
+                if (theme === 'dark') {
+                    light.disabled = true;
+                    dark.disabled = false;
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    light.disabled = false;
+                    dark.disabled = true;
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+                localStorage.setItem('theme', theme);
+            },
+            getTheme: function () {
+                return localStorage.getItem('theme') || 'light';
+            },
+            init: function () {
+                var saved = this.getTheme();
+                if (saved === 'dark') this.setTheme('dark');
+            }
+        };
+        window.themeManager.init();
+    </script>
 </body>
 
 </html>
